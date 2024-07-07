@@ -1,0 +1,33 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "type": "object",
+  "properties": {
+    "itens": {
+      "type": "array",
+      "items": [
+        {
+          "type": "object",
+          "properties": {
+            "nome": {
+              "type": "string"
+            },
+            "quantidade": {
+              "type": "integer"
+            },
+            "preco": {
+              "type": "number"
+            }
+          },
+          "required": [
+            "nome",
+            "quantidade",
+            "preco"
+          ]
+        }
+      ]
+    }
+  },
+  "required": [
+    "itens"
+  ]
+}

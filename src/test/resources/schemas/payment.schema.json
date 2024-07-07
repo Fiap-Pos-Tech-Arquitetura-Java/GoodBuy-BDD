@@ -1,0 +1,65 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "string"
+    },
+    "method": {
+      "type": "string"
+    },
+    "summary": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "itens": {
+          "type": "array",
+          "items": [
+            {
+              "type": "object",
+              "properties": {
+                "id": {
+                  "type": "string"
+                },
+                "nome": {
+                  "type": "string"
+                },
+                "quantidade": {
+                  "type": "integer"
+                },
+                "preco": {
+                  "type": "number"
+                },
+                "valorTotal": {
+                  "type": "number"
+                }
+              },
+              "required": [
+                "id",
+                "nome",
+                "quantidade",
+                "preco",
+                "valorTotal"
+              ]
+            }
+          ]
+        },
+        "custoTotal": {
+          "type": "number"
+        }
+      },
+      "required": [
+        "id",
+        "itens",
+        "custoTotal"
+      ]
+    }
+  },
+  "required": [
+    "id",
+    "method",
+    "summary"
+  ]
+}
