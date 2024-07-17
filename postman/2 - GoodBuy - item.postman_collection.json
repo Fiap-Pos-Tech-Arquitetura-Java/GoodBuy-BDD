@@ -1,0 +1,175 @@
+{
+	"info": {
+		"_postman_id": "76fdbb95-0cf4-4a85-b4a6-07a61ca6f8b9",
+		"name": "2 - GoodBuy - item",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "4274444"
+	},
+	"item": [
+		{
+			"name": "create",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var res = pm.response.json();\r",
+							"postman.clearEnvironmentVariable(\"idItem\");\r",
+							"postman.setEnvironmentVariable(\"idItem\", res.id);"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{accessTokenAdmin}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"nome\": \"VW Polo GTS\",\r\n    \"preco\": 158802.65,\r\n    \"descricao\": \"divertido\",\r\n    \"categoria\": \"carros\",\r\n    \"urlImagem\": \"urldaImagemDeUmPoloGTS\",\r\n    \"quantidade\": 5\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{urlItem}}",
+					"host": [
+						"{{urlItem}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "update",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var res = pm.response.json();\r",
+							"postman.clearEnvironmentVariable(\"idItem\");\r",
+							"postman.setEnvironmentVariable(\"idItem\", res.id);"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"nome\": \"VW Polo GTS !!!\",\r\n    \"preco\": 176123.65,\r\n    \"descricao\": \"divertidissimo\",\r\n    \"categoria\": \"carros esportivos\",\r\n    \"urlImagem\": \"urldaImagemDeUmPoloGTSNaSerraDoRioDoRastro\",\r\n    \"quantidade\": 2\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{urlItem}}/{{idItem}}",
+					"host": [
+						"{{urlItem}}"
+					],
+					"path": [
+						"{{idItem}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "findAll",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{accessToken}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{urlItem}}",
+					"host": [
+						"{{urlItem}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "findById",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{accessToken}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{urlItem}}/{{idItem}}",
+					"host": [
+						"{{urlItem}}"
+					],
+					"path": [
+						"{{idItem}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "delete",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{accessToken}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{urlItem}}/{{idItem}}",
+					"host": [
+						"{{urlItem}}"
+					],
+					"path": [
+						"{{idItem}}"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
